@@ -17,7 +17,7 @@ cp -R /home/.../coco   /root/code/adet/datasets
 ### instal cv2
 pip install opencv-python-headless
 
-### run to train model and eval. To change traing params change the file
+### run to train model and eval. To change training params change the file
 python train_and_eval.py  
 
 ### inference trained model on test data. By default uses model_0009999.pth
