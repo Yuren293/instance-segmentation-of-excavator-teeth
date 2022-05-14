@@ -1,6 +1,6 @@
 # segmentation-of-excavator-teeth
  Its my representation of adelaidet and detectron2 repos for instance segmentation task. 
- By defalt Mask R_SNN is set as a backbone. 
+ By defalt Mask R_SNN is set as a backbone. Default trainer achieves mAP 26.3 for segmentations and mAP 35.4 for bboxes with 10000 iterations 
  Original code of adet and detectron2 is presented below: 
  1. https://github.com/aim-uofa/AdelaiDet
  2. https://detectron2.readthedocs.io/en/latest/tutorials/datasets.html
