@@ -12,7 +12,7 @@ sudo docker build -t seg-app:2.0 .
 sudo docker run -it --gpus all --shm-size=30gb -v "--your_dir_with_coco_format_dataset--:/home" seg-app:2.0
 
 ### copy mounted dataset to the work directory
-cp -R /home/.../coco /root/code/adet/datasets   
+cp -R /home/.../coco   /root/code/adet/datasets   
 
 pip install opencv-python-headless
 
