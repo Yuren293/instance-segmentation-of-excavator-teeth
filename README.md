@@ -4,7 +4,7 @@
  2. https://detectron2.readthedocs.io/en/latest/tutorials/datasets.html
 
 
-How to build with Docker: 
+# How to build with Docker: 
 
 ### use presented dockerfile to build an image
 sudo docker build -t seg-app:2.0 .
