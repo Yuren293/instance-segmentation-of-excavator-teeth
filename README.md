@@ -27,3 +27,4 @@ python train_and_eval.py
 
 ### inference trained model on test data. By default uses model_final.pth
 python inference_and_eval.py
+![Screenshot from 2022-05-16 16-01-55](https://user-images.githubusercontent.com/57952207/168669872-34f4b95a-28ac-49bc-a0f5-5ba6e6399db7.png)
