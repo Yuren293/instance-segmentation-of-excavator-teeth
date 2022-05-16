@@ -34,7 +34,7 @@ cfg.MODEL.WEIGHTS = model_zoo.get_checkpoint_url("COCO-InstanceSegmentation/mask
 cfg.SOLVER.IMS_PER_BATCH = 2
 cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 64 
 cfg.SOLVER.BASE_LR = 0.00025
-cfg.SOLVER.MAX_ITER = 10000
+cfg.SOLVER.MAX_ITER = 60000
 cfg.SOLVER.STEPS = []
 cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 128
 cfg.MODEL.ROI_HEADS.NUM_CLASSES = 3
@@ -44,7 +44,7 @@ trainer = DefaultTrainer(cfg)
 trainer.resume_or_load(resume=True) 
 #trainer.train()  
 
-cfg.MODEL.WEIGHTS = os.path.join(cfg.OUTPUT_DIR, "model_0009999.pth")
+cfg.MODEL.WEIGHTS = os.path.join(cfg.OUTPUT_DIR, "model_final.pth")
 cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.7   # set a custom testing threshold
 cfg.DATASETS.TEST = ("my_dataset_test",)
 
