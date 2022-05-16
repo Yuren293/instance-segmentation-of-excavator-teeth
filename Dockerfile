@@ -11,7 +11,7 @@ RUN cd /root && wget https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x
 #RUN cd /root && bash Anaconda3-2020.07-Linux-x86_64.sh -b -p ./anaconda3
 RUN cd /root && bash Anaconda3-2021.11-Linux-x86_64.sh -b -p ./anaconda3
 
-RUN bash -c "source /root/anaconda3/etc/profile.d/conda.sh && conda install -y pytorch==1.10.1 torchvision==0.11.2  cudatoolkit=11.3 -c pytorch -c conda-forge"
+RUN bash -c "source /root/anaconda3/etc/profile.d/conda.sh && conda install -y pytorch==1.10.1 torchvision==0.11.2  cudatoolkit=11.3 -c pytorch -c conda-forge "
 
 RUN bash -c "/root/anaconda3/bin/conda init bash"
 
@@ -29,18 +29,28 @@ RUN bash -c "source /root/anaconda3/etc/profile.d/conda.sh && conda activate bas
 
 RUN rm /root/Anaconda3-2021.11-Linux-x86_64.sh
 
+RUN export DETECTRON2_DATASETS=/root/code/adet/datasets
+
 RUN wget https://raw.githubusercontent.com/Yuren293/instance-segmentation-of-excavator-teeth/main/train_and_eval.py
 
 RUN wget https://raw.githubusercontent.com/Yuren293/instance-segmentation-of-excavator-teeth/main/inference_and_eval.py
 
-RUN wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1zUq4uyQB1yK_CJDOuui7LWuC7J0wbx88' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1zUq4uyQB1yK_CJDOuui7LWuC7J0wbx88" -O model_0009999.pth && rm -rf /tmp/cookies.txt
-
 RUN mkdir output
 
-RUN cp -R /root/code/adet/model_0009999.pth /root/code/adet/output/ 
- 
-RUN export DETECTRON2_DATASETS=/root/code/adet/datasets 
+WORKDIR output
 
+RUN wget https://raw.githubusercontent.com/Yuren293/instance-segmentation-of-excavator-teeth/main/output/coco_instances_results.json
+RUN wget https://raw.githubusercontent.com/Yuren293/instance-segmentation-of-excavator-teeth/main/output/events.out.tfevents.1652698852.60f0d2e2aefc.37.0
+RUN wget https://raw.githubusercontent.com/Yuren293/instance-segmentation-of-excavator-teeth/main/output/events.out.tfevents.1652706495.60f0d2e2aefc.105.0
+RUN wget https://raw.githubusercontent.com/Yuren293/instance-segmentation-of-excavator-teeth/main/output/instances_predictions.pth
+RUN wget https://raw.githubusercontent.com/Yuren293/instance-segmentation-of-excavator-teeth/main/output/last_checkpoint
+RUN wget https://raw.githubusercontent.com/Yuren293/instance-segmentation-of-excavator-teeth/main/output/metrics.json
+
+RUN wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1rlPbE7pXig_5TeCkuWSsOhzEZxLG0EKO' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1rlPbE7pXig_5TeCkuWSsOhzEZxLG0EKO" -O model_005999.pth && rm -rf /tmp/cookies.txt
+RUN wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1a-5P35OBhRNZzz_xcnXkzHPlINq50uq8' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1a-5P35OBhRNZzz_xcnXkzHPlINq50uq8" -O model_final.pth && rm -rf /tmp/cookies.txt
+
+WORKDIR /root/code/adet
+RUN bash -c "source /root/anaconda3/etc/profile.d/conda.sh && conda install protobuf"
 RUN apt install nano
 
 
