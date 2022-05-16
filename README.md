@@ -25,5 +25,5 @@ pip install opencv-python-headless
 ### run to train model and eval. To change training params change the file
 python train_and_eval.py  
 
-### inference trained model on test data. By default uses model_0009999.pth
+### inference trained model on test data. By default uses model_final.pth
 python inference_and_eval.py
