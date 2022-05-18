@@ -32,7 +32,6 @@ cfg.DATALOADER.NUM_WORKERS = 1
 #cfg.INPUT.RANDOM_FLIP = "none"
 cfg.MODEL.WEIGHTS = model_zoo.get_checkpoint_url("COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml")  # Let training initialize from model zoo
 cfg.SOLVER.IMS_PER_BATCH = 2
-cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 64 
 cfg.SOLVER.BASE_LR = 0.00025
 cfg.SOLVER.MAX_ITER = 60000
 cfg.SOLVER.STEPS = []
