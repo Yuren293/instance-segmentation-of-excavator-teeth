@@ -1,4 +1,8 @@
 # segmentation-of-excavator-teeth
+
+The purpose of the work: to solve the problem of Instance Segmentation in order to detect potentially dangerous scenarios for the loss of bucket teeth and to justify the introduction of one of them into the excavator teeth control system developed by the Ciphra technology company. 
+Within the framework of this work, modern approaches of solving the Instance Segmentation problem are first analyzed, a data markup technique is developed, data markup is performed, an easily reproducible development environment is created inside the container using Docker and the Mask-RCNN deep learning neural network is trained on the marked data as a baseline solution. It is also possible to deploy architectures such as SOLOv2, BlendMask and SondInst for Instance Segmentation tasks inside this environment.
+
  Its my representation of adelaidet and detectron2 repos for instance segmentation task. 
  By defalt Mask R_SNN is set as a backbone. Default trainer achieves mAP 37.5 for segmentations and mAP 47.4 for bboxes with 60000 iterations.
  Original code of adet and detectron2 is presented below: 
